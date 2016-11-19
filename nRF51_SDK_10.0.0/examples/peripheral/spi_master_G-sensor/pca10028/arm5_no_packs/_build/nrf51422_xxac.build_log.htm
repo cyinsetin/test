@@ -1,0 +1,104 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: ¦ÌVision V5.14.0.0
+Copyright (C) 2015 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: HW Microsoft, Microsoft, LIC=AK101-CG3HH-PF9IX-HF68D-4SU43-7IYMB
+ 
+Tool Versions:
+Toolchain:       MDK-ARM Professional  Version: 5.14.0.0
+Toolchain Path:  d:\Keil_v5\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.05 update 1 (build 106)
+Assembler:       Armasm.exe V5.05 update 1 (build 106)
+Linker/Locator:  ArmLink.exe V5.05 update 1 (build 106)
+Library Manager: ArmAr.exe V5.05 update 1 (build 106)
+Hex Converter:   FromElf.exe V5.05 update 1 (build 106)
+CPU DLL:         
+Dialog DLL:      
+Target DLL:      Segger\JL2CM3.dll V2.99.13.0
+Dialog DLL:      TARMCM1.DLL V1.9.0.0
+ 
+<h2>Project:</h2>
+E:\nrf5_SDK\nRF51_SDK_10.0.0\examples\peripheral\spi_master_G-sensor\pca10028\arm5_no_packs\spi_master_pca10028.uvprojx
+Project File Date:  11/11/2016
+
+<h2>Output:</h2>
+Build target 'nrf51422_xxac'
+compiling main.c...
+..\..\..\..\bsp\CT003.h(32): warning:  #47-D: incompatible redefinition of macro "KEY_IO" (declared at line 15 of "..\..\..\..\bsp\pca10028.h")
+  #define KEY_IO                                 17
+..\..\..\..\bsp\CT003.h(101): warning:  #47-D: incompatible redefinition of macro "HWFC" (declared at line 70 of "..\..\..\..\bsp\pca10028.h")
+  #define HWFC           false
+..\..\..\..\bsp\CT003.h(108): warning:  #47-D: incompatible redefinition of macro "SPIM0_SCK_PIN" (declared at line 83 of "..\..\..\..\bsp\pca10028.h")
+  #define SPIM0_SCK_PIN       4     /**< SPI clock GPIO pin number. */
+..\..\..\..\bsp\CT003.h(109): warning:  #47-D: incompatible redefinition of macro "SPIM0_MOSI_PIN" (declared at line 84 of "..\..\..\..\bsp\pca10028.h")
+  #define SPIM0_MOSI_PIN      1     /**< SPI Master Out Slave In GPIO pin number. */
+..\..\..\..\bsp\CT003.h(110): warning:  #47-D: incompatible redefinition of macro "SPIM0_MISO_PIN" (declared at line 85 of "..\..\..\..\bsp\pca10028.h")
+  #define SPIM0_MISO_PIN      3     /**< SPI Master In Slave Out GPIO pin number. */
+..\..\..\..\bsp\CT003.h(111): warning:  #47-D: incompatible redefinition of macro "SPIM0_SS_PIN" (declared at line 86 of "..\..\..\..\bsp\pca10028.h")
+  #define SPIM0_SS_PIN        2     /**< SPI Slave Select GPIO pin number. */
+..\..\main.c(60): warning:  #9-D: nested comment is not allowed
+  #define SPIM0_SCK_PIN       4     /**< SPI clock GPIO pin number. 
+..\..\main.c(61): warning:  #9-D: nested comment is not allowed
+  #define SPIM0_MOSI_PIN      1     /**< SPI Master Out Slave In GPIO pin number. 
+..\..\main.c(62): warning:  #9-D: nested comment is not allowed
+  #define SPIM0_MISO_PIN      3     /**< SPI Master In Slave Out GPIO pin number. 
+..\..\main.c(63): warning:  #9-D: nested comment is not allowed
+  #define SPIM0_SS_PIN        2     /**< SPI Slave Select GPIO pin number. 
+..\..\main.c(648): warning:  #177-D: variable "i" was declared but never referenced
+                uint16_t i; 
+..\..\main.c(249): warning:  #177-D: function "LIS3DH_Write_Enable" was declared but never referenced
+  static void LIS3DH_Write_Enable(void)
+..\..\main.c(560): warning:  #177-D: function "switch_state" was declared but never referenced
+  static void switch_state(void)
+..\..\main.c: 13 warnings, 0 errors
+compiling bsp.c...
+compiling nrf_delay.c...
+compiling nrf_drv_common.c...
+compiling nrf_drv_gpiote.c...
+compiling nrf_drv_spi.c...
+compiling app_button.c...
+compiling app_error.c...
+compiling app_timer.c...
+compiling app_util_platform.c...
+compiling nrf_assert.c...
+assembling arm_startup_nrf51.s...
+compiling system_nrf51.c...
+linking...
+Program Size: Code=5172 RO-data=292 RW-data=84 ZI-data=2820  
+FromELF: creating hex file...
+".\_build\nrf51422_xxac.axf" - 0 Error(s), 13 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: ARM
+                http://www.keil.com/pack/ARM.CMSIS.4.5.0.pack
+                ARM::CMSIS:CORE:4.3.0
+                CMSIS (Cortex Microcontroller Software Interface Standard)
+   * Component: CORE Version: 4.3.0
+
+Package Vendor: NordicSemiconductor
+                http://developer.nordicsemi.com/nRF51_SDK/pieces/nRF_DeviceFamilyPack/NordicSemiconductor.nRF_DeviceFamilyPack.8.2.0.pack
+                NordicSemiconductor::Device:Startup:8.2.0
+                Nordic Semiconductor nRF ARM devices Device Family Pack.
+   * Component: Startup Version: 8.2.0
+
+<h2>Collection of Component include folders:</h2>
+  E:\nrf5_SDK\nRF51_SDK_10.0.0\examples\peripheral\spi_master_G-sensor\pca10028\arm5_no_packs\RTE
+  d:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include
+  d:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.2.0\Device\Include
+  d:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.9.0\Device\Include
+
+<h2>Collection of Component Files used:</h2>
+
+   * Component: ARM::CMSIS:CORE:4.3.0
+
+   * Component: NordicSemiconductor::Device:Startup:8.2.0
+      Source file:   Device\Source\arm\arm_startup_nrf51.s
+      Source file:   Device\Source\system_nrf51.c
+      Include file:  Device\Include\system_nrf51.h
+</pre>
+</body>
+</html>

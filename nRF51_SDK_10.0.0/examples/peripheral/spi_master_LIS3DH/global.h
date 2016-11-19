@@ -1,0 +1,480 @@
+
+#ifndef _GOLBAL_H__
+#define _GOLBAL_H__
+
+#include <stdint.h>
+#include <string.h>
+#include "nordic_common.h"
+//#include "nrf.h"
+#include "app_error.h"
+//#include "nrf_gpio.h"
+#include "nrf51_bitfields.h"
+//#include "ble.h"
+//#include "ble_hci.h"
+//#include "ble_srv_common.h"
+//#include "ble_advdata.h"
+//#include "ble_conn_params.h"
+//#include "boards.h"
+//#include "app_scheduler.h"
+//#include "softdevice_handler.h"
+#include "app_timer.h"
+//#include "ble_error_log.h"
+//#include "app_gpiote.h"
+//#include "app_button.h"
+//#include "ble_debug_assert_handler.h"
+//#include "pstorage.h"
+//#include "ble_lbs.h"
+//#include "BD_Band.h"
+//#include "Board.h"
+//#include "Types.h"
+//#include "Hal_target.h"
+//#include "uart.h"
+//#include "global.h"
+//#include "BandFunc.h"
+//#include "APP_BLE.h"
+//#include "BLE_command.h"
+//#include "Flash.h"
+//#include "System.h"
+//#include "app_gpiote.h"
+#include "spi_Gsensor.h"
+//#include "Pedometer.h"
+//#include "WatchDog.h"
+//#include "nrf_flash.h"
+
+//#include "SEGGER_RTT.h"
+//#include "nrf_delay.h"
+
+//#define NULL (0)  //!< Null Pointer
+
+
+#define MaxStatusArry	80//304
+
+#define SDXARRY 80  //80
+#define SDYARRY 18
+
+#define SDHEAD	0x50
+#define DaliyStep(x)		(*((BYTE *)Steps_Day+x))//     [(x)/18][((x)%18)])
+
+
+typedef enum
+{
+	FF_Non,
+	FF_FTSensor,
+	FF_LEDMotor,
+	FF_Max,
+}FactoryFlowType;
+extern FactoryFlowType FactoryFlow;
+
+
+typedef enum
+{
+	WM_TEST=0,  //test mode.
+	WM_TEST_A,
+	WM_TEST_B,
+	WM_TEST_B_MIN,
+	WM_TEST_B_HOUR,
+	WM_TEST_B_SEC,
+	WM_TEST_B_END,
+	WM_TEST_C,
+	WM_TEST_D,
+	WM_USER,  //user mode.
+}WorkMode_Type;
+extern WorkMode_Type WorkMode;
+
+typedef enum
+{
+    NON_RUN_FAST_STEP = 0,
+    SEC_RUN_FAST_STEP = 1,                 /**< sec hand use timer1. */
+    MIN_RUN_FAST_STEP = 2,                  /**< MIN hand use timer1. */
+    HOUR_RUN_FAST_STEP = 3,                  /**< hour hand use timer1. */
+} who_run_fast_n_step_type;
+
+typedef enum
+{
+    FREE = 0,                 /**< free */
+    BUSY = 1,                  /**< busy */
+} timer_status_type;
+
+
+#define CurrentYear   		BandSetting.CurrentTime.Year
+#define CurrentMonth   	BandSetting.CurrentTime.Month
+#define CurrentDay   		BandSetting.CurrentTime.Day
+#define CurrentHour   	BandSetting.CurrentTime.Hour
+#define CurrentMin    		BandSetting.CurrentTime.Min
+#define CurrentSec    		BandSetting.CurrentTime.Sec
+#define CurrentWeekday	BandSetting.CurrentTime.Weekday
+
+#define Alarms  BandSetting.SmartAlarm
+
+/*Start of jack on 2016-3-23 18:15 1.0*/
+
+
+
+#define SetAlarm(Number_ID)                                  \
+    do                                                       \
+    {                                                        \
+      Alarms[Number_ID].Hour=BLE_CMDRecBuffer[5+1];                             \
+      Alarms[Number_ID].Min=BLE_CMDRecBuffer[5+2];                              \
+      Alarms[Number_ID].SnoozeTime=BLE_CMDRecBuffer[5+3];                       \
+      Alarms[Number_ID].SmartSleepWindow=BLE_CMDRecBuffer[5+4];                 \
+      Alarms[Number_ID].Repeat=BLE_CMDRecBuffer[5+5];                           \
+      Alarms[Number_ID].Customer_Defined=BLE_CMDRecBuffer[5+6];                 \
+      Alarms[Number_ID].Enable= BLE_CMDRecBuffer[5+7];                          \
+    } while (0)
+
+#define printAlarm(Number_ID)                   \
+    do                                          \
+    {                                           \
+      printData("Alarm_nubmer=%x", Number_ID);  \
+      printData("Alarm_hour=%d", Alarms[Number_ID].Hour);  \
+      printData("Alarm_min=%d", Alarms[Number_ID].Min);  \
+      printData("Alarm_snoozetime=%d", Alarms[Number_ID].SnoozeTime);  \
+      printData("Alarm_sleepWindow=%d", Alarms[Number_ID].SmartSleepWindow);  \
+      printData("Alarm_repeat=%d", Alarms[Number_ID].Repeat);  \
+      printData("Alarm_customer=%d", Alarms[Number_ID].Customer_Defined);  \
+      printData("Alarm_enable=%x", Alarms[Number_ID].Enable);  \
+    } while(0)  
+
+
+#define printTime()                   \
+    do                                          \
+    {                                           \
+      printData("CurrentYear=%d", CurrentYear);  \
+      printData("CurrentMonth=%d", CurrentMonth);  \
+      printData("CurrentDay=%d", CurrentDay);  \
+      printData("CurrentHour=%d", CurrentHour);  \
+      printData("CurrentMin=%d", CurrentMin);  \
+      printData("CurrentSec=%d", CurrentSec);  \
+      printData("CurrentWeekday=%d", CurrentWeekday);  \
+      printData("min_20s_CurrentSec_motor:%d\n", min_20s_CurrentSec_motor);\
+    } while(0)   
+
+
+    
+  
+/*End of jack on 2016-3-23 18:15 1.0*/
+
+
+/*Start of jack on 2015-12-22 14:16 1.0*/
+
+#define OldYear   old_currentTime.Year
+#define OldMonth  old_currentTime.Month
+#define OldDay    old_currentTime.Day
+#define OldHour   old_currentTime.Hour
+#define OldMin    old_currentTime.Min
+#define OldSec    old_currentTime.Sec
+#define OldWeekday old_currentTime.Weekday
+
+/*End of jack on 2015-12-22 14:16 1.0*/
+#define UserprefIdent    				BandSetting.Ident
+#define UserprefCheckSum    			BandSetting.CheckSum
+
+#define UserprefPowerOnFlag			BandSetting.PowerOnFlag
+#define UserprefTimeout				BandSetting.BLETimeoutMin
+#define UserprefWorkMode            UserprefPowerOnFlag    //for save the work mode, 0: test mode, 1: user mode
+
+
+/*Start of jack on 2015-12-17 18:43 1.0*/
+extern void timer1_init(void);
+extern void gpio_pin_init_for_motor(uint32_t endPoint1,uint32_t endPoint2); 
+extern void  AppTimer_4MsRun_Init(void);
+
+extern uint32_t get_current_BatteryPercent(uint32_t adcValue);
+extern void printDebugMotorFlag(void);
+extern void   ClearSystemFlag_motor(void);
+extern void  ClearSystemFlag_motor_All(void);
+
+/*End of jack on 2015-12-17 18:43 1.0*/
+
+
+/*Start of jack on 2015-12-17 18:51 1.0*/
+#define sec_run_endpoint1 23 //21  //0: for watch of customer board
+#define sec_run_endpoint2 24 //22 //30: for watch of customer board.
+
+#define min_run_endpoint1 21 //23 //for watch of customer board.
+#define min_run_endpoint2 22 //20 //for watch of customer board.
+
+#define hour_run_endpoint1 0 //25 //for watch of customer board.
+#define hour_run_endpoint2 2 //24//for watch of customer board.
+
+#define VIRBRATE_MOTOR   11 // virbrate motor pin: 11
+
+extern unsigned char bAdjustZeroClockBit_motor;  //adjust  hour, minute to 0:00 clock manually,
+extern unsigned char bAdjustZeroClock_Step_Percent_motor;
+
+#define AdjustZeroClockFlag_motor			(bAdjustZeroClockBit_motor==1)
+#define No_AdjustZeroClockFlag_motor         (bAdjustZeroClockBit_motor==0)
+#define Set_AdjustZeroClockFlag_motor()			(bAdjustZeroClockBit_motor=1)
+#define Clr_AdjustZeroClockFlag_motor()			(bAdjustZeroClockBit_motor=0)
+
+extern uint32_t AdjustZeroClock_state;
+
+extern unsigned char bAdjust_week_day_Bit_motor;  //adjust  hour and min hand for display day and week.
+#define AdjustWeekDayFlag_motor			(bAdjust_week_day_Bit_motor>=1)
+#define No_AdjustWeekDayFlag_motor      (bAdjust_week_day_Bit_motor==0)
+//#define Set_AdjustWeekDayFlag_motor()			(bAdjust_week_day_Bit_motor=1)
+#define Clr_AdjustWeekDayFlag_motor()			(bAdjust_week_day_Bit_motor=0)
+
+extern unsigned char bAdjustHourMinBit_motor ; //adjust hour and minute hand after receive New Time of BLE.
+#define AdjustHourMinFlag_motor			(bAdjustHourMinBit_motor==1)
+#define No_AdjustHourMinFlag_motor      (bAdjustHourMinBit_motor==0)    
+#define Set_AdjustHourMinFlag_motor()			(bAdjustHourMinBit_motor=1)
+#define Clr_AdjustHourMinFlag_motor()			(bAdjustHourMinBit_motor=0)
+
+
+#define HOUR_MIN_SEC_NORMAL_STATE ((WorkMode==WM_USER)&&No_AdjustHourMinFlag_motor&&No_AdjustZeroClockFlag_motor&&No_AdjustWeekDayFlag_motor)
+#define SEC_VALIDTIME ((CurrentSec >= 1 && CurrentSec <=18)||(CurrentSec >= 21 && CurrentSec <=38)||(CurrentSec >= 41 && CurrentSec <=58))
+
+//#define TestPeriod 1  //((CurrentYear==16)&&(CurrentMonth<=10))
+
+extern  uint32_t min_total_run_steps;  //caculate total steps for min,sec,hour.
+extern  uint32_t sec_total_run_steps;
+extern  uint32_t hour_total_run_steps;
+
+extern uint32_t sec_total_not_finshed_steps; 
+extern uint32_t min_total_not_finshed_steps; 
+extern uint32_t hour_total_not_finshed_steps;
+
+extern who_run_fast_n_step_type who_is_running_fast_n_step_flag;
+
+extern uint32_t min_20s_CurrentSec_motor;
+extern uint32_t time_min_hour_step_percent_backtoDisplayTime; //记录恢复显示时间，分，时，计步花费的时间；
+extern uint32_t degree_of_Step_percent_finished;  //record the degree of sec hand running for step percent.
+extern uint32_t current_degree_StepSwitchBatteryPercent; 
+/* BEGIN: Added by dfdsf, 2016/6/1 */
+extern uint32_t current_degree_MinuteSwitchDay;
+//extern uint32_t current_degree_HourSwitchWeek;
+/* END:   Added by dfdsf, 2016/6/1 */
+
+
+extern uint32_t times_min_20s_during_Adjust_HourMin;
+
+extern uint32_t fast_run_steps;
+extern uint32_t fast_run_target_steps;
+
+extern timer_status_type timer1_status;
+
+extern BYTE  g_Ver;
+
+/*End of jack on 2015-12-17 18:51 1.0*/
+
+
+extern void Init_Global_Varible(void);
+extern void Init_Daily_Data(void);
+
+
+
+extern BYTE StepsStatus_Day[MaxStatusArry];
+extern DWORD StepsStausIndex;
+//extern BYTE Steps_Day[SDXARRY][SDYARRY];
+extern DWORD Steps_Day[SDXARRY*SDYARRY/4];
+extern BYTE File_Name[4];//{13,12,15,00};
+extern BYTE ModeStatus;
+extern BYTE PreModeStatus;
+extern BandSettingType BandSetting;
+extern CurrentTimeType old_currentTime; //added by jack.
+extern BYTE BandSN[SNSaveLength];
+extern BYTE BandUserMode[4];
+
+extern WORD UpdateIndex;
+extern BYTE PreUpdateOKIndex;
+extern WORD UpdatRecIndexIn512;
+
+
+extern uint8_t Sys100msCounter;
+extern uint8_t Sys1000msCounter;
+extern uint8_t Sys100msCounter_motor;
+
+//extern uint32_t FlashResult;
+
+#define SD_FOR_DEEP_LIGHT_SLEEP_NUM		30
+#define SD_FOR_IDLE_NUM					10
+extern BYTE SD_ForIdle[SD_FOR_IDLE_NUM];
+extern BYTE SD_ForDeepLightSleep[SD_FOR_DEEP_LIGHT_SLEEP_NUM];
+#define SD_FOR_SLEEP_AWAKE_NUM			20
+extern BYTE SD_ForSleepAwake[SD_FOR_SLEEP_AWAKE_NUM];
+extern WORD STEPS;
+extern float g_total_steps_currentday;
+extern uint32_t g_total_steps_currentday_backup;
+
+extern uint16_t PreADCValue;
+extern uint16_t ADCValue;
+extern uint16_t const battery_adc_table[21];
+
+extern uint8_t PreRechargeValue;
+extern uint8_t RechargeValue;
+
+extern BYTE bSysEventSucess;
+extern uint32_t g_Addr;
+extern uint8_t g_RecTime_Status;
+extern uint8_t g_SaveDalily_Status;
+extern uint8_t FILEMTemp[12];
+extern uint8_t FILEMLen;
+extern BYTE SendFILEMIndex;
+
+
+//#define printBandSN()                      \
+//  do                                       \
+//  {                                        \
+//    for(uint32_t i = 0;i <16; i++)         \
+//    {                                      \
+//      printData("BandSN[]=%d",BandSN[i]);\
+//    }                                      \
+//  } while(0)
+
+extern void  printBandSN(void);
+ 
+
+
+extern BYTE bSecondBit;
+#define SetondFlag				(bSecondBit==1)//	(SystemFlag2&bSecondBit)
+#define Set_SetondFlag()			(bSecondBit=1)//(SystemFlag2|=bSecondBit)
+#define Clr_SetondFlag()			(bSecondBit=0)//(SystemFlag2&=~bSecondBit)
+
+extern BYTE b100msBit;//#define b100msBit					BIT4
+#define l00msFlag				(b100msBit==1)//	(SystemFlag2&b100msBit)
+#define Set_100msFlag()			(b100msBit=1)//(SystemFlag2|=b100msBit)
+#define Clr_100msFlag()			(b100msBit=0)//(SystemFlag2&=~b100msBit)
+
+extern BYTE SensorPowerDownBit;
+#define SensorPowerDownFlag						(SensorPowerDownBit==1)//(SleepModeBYTE&DoSleepModeChangeBit)
+#define Set_SensorPowerDownFlag()					(SensorPowerDownBit=1)//(SleepModeBYTE|=DoSleepModeChangeBit)
+#define Clr_SensorPowerDownFlag()					(SensorPowerDownBit=0)//(SleepModeBYTE&=~DoSleepModeChangeBit)
+
+extern BYTE bReadHistoryDataBit;
+#define ReadHistoryDataFlag					(bReadHistoryDataBit==1)//(SystemFlag&bValidModeChageBit)
+#define Set_ReadHistoryDataFlag()			(bReadHistoryDataBit=1)//(SystemFlag|=bValidModeChageBit)
+#define Clr_ReadHistoryDataFlag()			(bReadHistoryDataBit=0)//(SystemFlag&=~bValidModeChageBit)
+
+
+extern BYTE bBLEConnectBit;
+#define BLEConnectFlag						(bBLEConnectBit==1)//(SleepModeBYTE&DoSleepModeChangeBit)
+#define Set_BLEConnectFlag()					(bBLEConnectBit=1)//(SleepModeBYTE|=DoSleepModeChangeBit)
+#define Clr_BLEConnectFlag()					(bBLEConnectBit=0)//(SleepModeBYTE&=~DoSleepModeChangeBit)
+
+extern BYTE bLowBatteryBit;
+#define LowBatteryFlag							(bLowBatteryBit==1)//(SleepModeBYTE&DoSleepModeChangeBit)
+#define No_LowBatteryFlag						(bLowBatteryBit==0)//(SleepModeBYTE&DoSleepModeChangeBit)
+#define Set_LowBatteryFlag()					(bLowBatteryBit=1)//(SleepModeBYTE|=DoSleepModeChangeBit)
+#define Clr_LowBatteryFlag()					(bLowBatteryBit=0)//(SleepModeBYTE&=~DoSleepModeChangeBit)
+
+            
+extern BYTE bLowToNormalBatteryBit;
+#define LowToNormalBatteryFlag					(bLowToNormalBatteryBit==1)//(SleepModeBYTE&DoSleepModeChangeBit)
+#define No_LowToNormalBatteryFlag				(bLowToNormalBatteryBit==0)//(SleepModeBYTE&DoSleepModeChangeBit)
+#define Set_LowToNormalBatteryFlag()			(bLowToNormalBatteryBit=1)//(SleepModeBYTE|=DoSleepModeChangeBit)
+#define Clr_LowToNormalBatteryFlag()			(bLowToNormalBatteryBit=0)//(SleepModeBYTE&=~DoSleepModeChangeBit)
+
+
+extern BYTE bPowerOnbit;
+#define Power_OnFlag							(bPowerOnbit==1)//(SleepModeBYTE&DoSleepModeChangeBit)
+#define Set_Power_OnFlag()					(bPowerOnbit=1)//(SleepModeBYTE|=DoSleepModeChangeBit)
+#define Clr_Power_OnFlag()					(bPowerOnbit=0)//(SleepModeBYTE&=~DoSleepModeChangeBit)
+
+extern BYTE bPowerOffbit;
+#define PowerOffFlag							(bPowerOffbit==1)//(SleepModeBYTE&DoSleepModeChangeBit)
+#define Set_PowerOffFlag()						(bPowerOffbit=1)//(SleepModeBYTE|=DoSleepModeChangeBit)
+#define Clr_PowerOffFlag()						(bPowerOffbit=0)//(SleepModeBYTE&=~DoSleepModeChangeBit)
+
+//manually Recharge on/off
+extern BYTE bManualRechargeOnbit;
+#define RechargeOn_Manual_Flag				(bManualRechargeOnbit==1)
+#define Set_RechargeOn_Manual_Flag()			(bManualRechargeOnbit=1)
+#define Change_RechargeOn_Manual_Flag()			(bManualRechargeOnbit=0xf1)
+
+#define RechargeOff_Manual_Flag				(bManualRechargeOnbit==0)
+#define Set_RechargeOff_Manual_Flag()			(bManualRechargeOnbit=0)
+#define Change_RechargeOff_Manual_Flag()			(bManualRechargeOnbit=0xf0)
+
+#define No_RechargeOn_RechargeOff_Manual_Flag      (bManualRechargeOnbit==0xff)
+#define Clr_RechargeOn_RechargeOff_Manual_Flag()     (bManualRechargeOnbit=0xff)
+
+//manually Power Off/on by key.
+extern BYTE bManualPowerOffbit;
+#define PowerOff_Manual_Flag				(bManualPowerOffbit==1)
+#define Set_Power_Off_Manual_Flag()			(bManualPowerOffbit=1)
+#define Clr_Power_Off_Manual_Flag()			(bManualPowerOffbit=0xf1)
+
+#define PowerOn_Manual_Flag				(bManualPowerOffbit==0)
+#define Set_Power_On_Manual_Flag()			(bManualPowerOffbit=0)
+#define Clr_Power_On_Manual_Flag()			(bManualPowerOffbit=0xf0)
+
+#define No_PowerOff_PowerOn_Manual_Flag      (bManualPowerOffbit==0xff)
+#define Clr_PowerOff_PowerOn_Manual_Flag()     (bManualPowerOffbit=0xff)
+
+
+extern BYTE bTurnOffBLEbit;
+#define TurnOffBLEFlag							(bTurnOffBLEbit==1)//(SleepModeBYTE&DoSleepModeChangeBit)
+#define Set_TurnOffBLEFlag()						(bTurnOffBLEbit=1)//(SleepModeBYTE|=DoSleepModeChangeBit)
+#define Clr_TurnOffBLEFlag()						(bTurnOffBLEbit=0)//(SleepModeBYTE&=~DoSleepModeChangeBit)
+
+//manually turn off BLE by key.
+extern BYTE bManualTurnOffBLEbit;
+#define TurnOffBLE_Manual_Flag					(bManualTurnOffBLEbit==1)
+#define TurnOnBLE_Manual_Flag                   (bManualTurnOffBLEbit==0)
+#define Set_TurnOffBLE_Manual_Flag()			(bManualTurnOffBLEbit=1)
+#define Set_TurnOnBLE_Manual_Flag()			    (bManualTurnOffBLEbit=0)
+#define Clr_TurnOffBLE_Manual_Flag()            (bManualTurnOffBLEbit=0xf1)
+#define Clr_TurnOnBLE_Manual_Flag()            (bManualTurnOffBLEbit=0xf0)
+
+#define No_TurnOff_TurnOnBLE_Manual_Flag      (bManualTurnOffBLEbit==0xff)
+#define Clr_TurnOff_TurnOnBLE_Manual_Flag()     (bManualTurnOffBLEbit=0xff)
+
+extern BYTE bReciveTimeBit;
+#define ReciveTimeFlag							(bReciveTimeBit==1)//(SleepModeBYTE&DoSleepModeChangeBit)
+#define Set_ReciveTimeFlag()					(bReciveTimeBit=1)//(SleepModeBYTE|=DoSleepModeChangeBit)
+#define Clr_ReciveTimeFlag()					(bReciveTimeBit=0)//(SleepModeBYTE&=~DoSleepModeChangeBit)
+
+extern BYTE UpdateDataEndBit;
+#define UpdateDataEndFlag						(UpdateDataEndBit==1)//(SleepModeBYTE&DoSleepModeChangeBit)
+#define Set_UpdateDataEndFlag()					(UpdateDataEndBit=1)//(SleepModeBYTE|=DoSleepModeChangeBit)
+#define Clr_UpdateDataEndFlag()					(UpdateDataEndBit=0)//(SleepModeBYTE&=~DoSleepModeChangeBit)
+
+extern BYTE StartUpdateBit;
+#define StartUpdateFlag							(StartUpdateBit==1)//(SleepModeBYTE&DoSleepModeChangeBit)
+#define Set_StartUpdateFlag()						(StartUpdateBit=1)//(SleepModeBYTE|=DoSleepModeChangeBit)
+#define Clr_StartUpdateFlag()						(StartUpdateBit=0)//(SleepModeBYTE&=~DoSleepModeChangeBit)
+
+extern BYTE bSetSaveDailyBit;
+#define SetSaveDailyFlag							(bSetSaveDailyBit==1)//(SleepModeBYTE&DoSleepModeChangeBit)
+#define Set_SetSaveDailyFlag()						(bSetSaveDailyBit=1)//(SleepModeBYTE|=DoSleepModeChangeBit)
+#define Clr_SetSaveDailyFlag()						(bSetSaveDailyBit=0)//(SleepModeBYTE&=~DoSleepModeChangeBit)
+
+extern BYTE bSetSaveDailyMoreTimesBit;
+#define SetSaveDailyMoreTimesFlag							(bSetSaveDailyMoreTimesBit==1)//(SleepModeBYTE&DoSleepModeChangeBit)
+#define Set_SetSaveDailyMoreTimesFlag()						(bSetSaveDailyMoreTimesBit=1)//(SleepModeBYTE|=DoSleepModeChangeBit)
+#define Clr_SetSaveDailyMoreTimesFlag()						(bSetSaveDailyMoreTimesBit=0)//(SleepModeBYTE&=~DoSleepModeChangeBit)
+
+extern BYTE bSetResetStepPercentBit;
+#define SetResetStepPercentFlag							(bSetResetStepPercentBit==1)//(SleepModeBYTE&DoSleepModeChangeBit)
+#define Set_ResetStepPercentFlag()						(bSetResetStepPercentBit=1)//(SleepModeBYTE|=DoSleepModeChangeBit)
+#define Clr_ResetStepPercentFlag()						(bSetResetStepPercentBit=0)//(SleepModeBYTE&=~DoSleepModeChangeBit)
+
+extern BYTE bDecoderPowerOnBit;
+#define DecoderPowerOnFlag							(bDecoderPowerOnBit==1)//(SleepModeBYTE&DoSleepModeChangeBit)
+#define Set_DecoderPowerOnFlag()						(bDecoderPowerOnBit=1)//(SleepModeBYTE|=DoSleepModeChangeBit)
+#define Clr_DecoderPowerOnFlag()						(bDecoderPowerOnBit=0)//(SleepModeBYTE&=~DoSleepModeChangeBit)
+
+#define Time_for_2400_clock ((CurrentHour == 23 && CurrentMin==59 && CurrentSec>=30)/*||(CurrentHour ==  0 && CurrentMin== 0 && CurrentSec<=2)*/)
+
+#define printSystemFlag()                   \
+    do                                          \
+    {                                           \
+      printData("------system Flag-----",1);  \
+      printData("bLowBatteryBit:%d",bLowBatteryBit);  \
+      printData("bLowToNormalBatteryBit:%d",bLowToNormalBatteryBit); \
+      printData("bManualRechargeOnbit:%d",bManualRechargeOnbit);  \
+      printData("bManualTurnOffBLEbit:%d",bManualTurnOffBLEbit);  \
+      printData("bManualPowerOffbit:%d",bManualPowerOffbit);  \
+      printData("bSetResetStepPercentBit:%d",bSetResetStepPercentBit);  \
+      printData("----------------------",1);  \
+      printData("bAdjustHourMinBit_motor:%d",bAdjustHourMinBit_motor);  \
+      printData("bAdjustZeroClockBit_motor:%d",bAdjustZeroClockBit_motor);  \
+      printData("bAdjust_week_day_Bit_motor:%d",bAdjust_week_day_Bit_motor);  \
+      printData("WM_MODE:%d",UserprefWorkMode);  \
+    } while(0)
+
+
+
+#endif
+

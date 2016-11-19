@@ -1,0 +1,273 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: ¦ÌVision V5.14.0.0
+Copyright (C) 2015 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: HW Microsoft, Microsoft, LIC=AK101-CG3HH-PF9IX-HF68D-4SU43-7IYMB
+ 
+Tool Versions:
+Toolchain:       MDK-ARM Professional  Version: 5.14.0.0
+Toolchain Path:  d:\Keil_v5\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.05 update 1 (build 106)
+Assembler:       Armasm.exe V5.05 update 1 (build 106)
+Linker/Locator:  ArmLink.exe V5.05 update 1 (build 106)
+Library Manager: ArmAr.exe V5.05 update 1 (build 106)
+Hex Converter:   FromElf.exe V5.05 update 1 (build 106)
+CPU DLL:         
+Dialog DLL:      
+Target DLL:      Segger\JL2CM3.dll V2.99.13.0
+Dialog DLL:      TARMCM1.DLL V1.9.0.0
+ 
+<h2>Project:</h2>
+E:\nrf5_SDK\nRF51_SDK_10.0.0\examples\ble_peripheral\ble_app_uart_with_protocol_20161115\pca10028\s110\arm5_no_packs\ble_app_uart_s110_pca10028.uvprojx
+Project File Date:  11/11/2016
+
+<h2>Output:</h2>
+Build target 'nrf51422_xxac_s110'
+compiling main.c...
+compiling spi_Gsensor.c...
+..\..\..\cyinstein\LIS3DH\spi_Gsensor.c(16): warning:  #223-D: function "spi_master_tx_rx" declared implicitly
+        spi_master_tx_rx(p_spi_base_address, 2, TempData, TempData,1); 
+..\..\..\cyinstein\LIS3DH\spi_Gsensor.c(26): warning:  #223-D: function "spi_master_tx_rx" declared implicitly
+        spi_master_tx_rx(p_spi_base_address, Len+1, &Addr, buff,2); 
+..\..\..\cyinstein\LIS3DH\spi_Gsensor.c: 2 warnings, 0 errors
+compiling spi_master.c...
+compiling Pedometer.c...
+..\..\..\cyinstein\LIS3DH\Pedometer.c(253): warning:  #223-D: function "printData" declared implicitly
+                        printData("STEPS==%d",STEPS);
+..\..\..\cyinstein\LIS3DH\Pedometer.c: 1 warning, 0 errors
+linking...
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol BT_RxBuf multiply defined (by spi_gsensor.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol BT_RxBuf multiply defined (by spi_master.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol BT_RxBuf multiply defined (by pedometer.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol BT_TxBuf multiply defined (by spi_gsensor.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol BT_TxBuf multiply defined (by spi_master.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol BT_TxBuf multiply defined (by pedometer.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol BLE_off_position multiply defined (by spi_gsensor.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol BLE_off_position multiply defined (by spi_master.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol BLE_off_position multiply defined (by pedometer.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol BLE_on_position multiply defined (by spi_gsensor.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol BLE_on_position multiply defined (by spi_master.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol BLE_on_position multiply defined (by pedometer.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol Bat_Low_position multiply defined (by spi_gsensor.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol Bat_Low_position multiply defined (by spi_master.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol Bat_Low_position multiply defined (by pedometer.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol buttons multiply defined (by spi_gsensor.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol buttons multiply defined (by spi_master.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol buttons multiply defined (by pedometer.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol leds_list multiply defined (by spi_gsensor.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol leds_list multiply defined (by spi_master.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol leds_list multiply defined (by pedometer.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol rtc multiply defined (by spi_gsensor.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol rtc multiply defined (by spi_master.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol rtc multiply defined (by pedometer.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol small_hand_position multiply defined (by spi_gsensor.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol small_hand_position multiply defined (by spi_master.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol small_hand_position multiply defined (by pedometer.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol weeks_position multiply defined (by spi_gsensor.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol weeks_position multiply defined (by spi_master.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol weeks_position multiply defined (by pedometer.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol Hand_Control multiply defined (by spi_gsensor.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol Hand_Control multiply defined (by spi_master.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol Hand_Control multiply defined (by pedometer.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol Button_Control multiply defined (by spi_gsensor.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol Button_Control multiply defined (by spi_master.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol Button_Control multiply defined (by pedometer.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol date_position multiply defined (by spi_gsensor.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol date_position multiply defined (by spi_master.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol date_position multiply defined (by pedometer.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol BAT_Value multiply defined (by spi_gsensor.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol BAT_Value multiply defined (by spi_master.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol BAT_Value multiply defined (by pedometer.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol PN multiply defined (by spi_gsensor.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol PN multiply defined (by spi_master.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol PN multiply defined (by pedometer.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol Pedometer_Value multiply defined (by spi_gsensor.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol Pedometer_Value multiply defined (by spi_master.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol Pedometer_Value multiply defined (by pedometer.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol RTC_Small_Hand_Buttom_Position multiply defined (by spi_gsensor.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol RTC_Small_Hand_Buttom_Position multiply defined (by spi_master.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol RTC_Small_Hand_Buttom_Position multiply defined (by pedometer.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol RTC_Small_Hand_Left_Position multiply defined (by spi_gsensor.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol RTC_Small_Hand_Left_Position multiply defined (by spi_master.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol RTC_Small_Hand_Left_Position multiply defined (by pedometer.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol RTC_Small_Hand_Right_Position multiply defined (by spi_gsensor.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol RTC_Small_Hand_Right_Position multiply defined (by spi_master.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol RTC_Small_Hand_Right_Position multiply defined (by pedometer.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol RTC_Small_Hand_Top_Position multiply defined (by spi_gsensor.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol RTC_Small_Hand_Top_Position multiply defined (by spi_master.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol RTC_Small_Hand_Top_Position multiply defined (by pedometer.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol Second_Hand_One_Step_flg multiply defined (by spi_gsensor.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol Second_Hand_One_Step_flg multiply defined (by spi_master.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol Second_Hand_One_Step_flg multiply defined (by pedometer.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol date_position_index multiply defined (by spi_gsensor.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol date_position_index multiply defined (by spi_master.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol date_position_index multiply defined (by pedometer.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol key_pause_short_flg multiply defined (by spi_gsensor.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol key_pause_short_flg multiply defined (by spi_master.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol key_pause_short_flg multiply defined (by pedometer.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol key_press_time multiply defined (by spi_gsensor.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol key_press_time multiply defined (by spi_master.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol key_press_time multiply defined (by pedometer.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol weeks_position_index multiply defined (by spi_gsensor.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol weeks_position_index multiply defined (by spi_master.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol weeks_position_index multiply defined (by pedometer.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol key_pause_3s_flg multiply defined (by spi_gsensor.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol key_pause_3s_flg multiply defined (by spi_master.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol key_pause_3s_flg multiply defined (by pedometer.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol key_pause_5s_flg multiply defined (by spi_gsensor.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol key_pause_5s_flg multiply defined (by spi_master.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol key_pause_5s_flg multiply defined (by pedometer.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol key_pause_10s_flg multiply defined (by spi_gsensor.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol key_pause_10s_flg multiply defined (by spi_master.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol key_pause_10s_flg multiply defined (by pedometer.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol One_step_flg multiply defined (by spi_gsensor.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol One_step_flg multiply defined (by spi_master.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol One_step_flg multiply defined (by pedometer.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol Minute_Hand_One_Step_flg multiply defined (by spi_gsensor.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol Minute_Hand_One_Step_flg multiply defined (by spi_master.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol Minute_Hand_One_Step_flg multiply defined (by pedometer.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol Hour_Hand_One_Step_flg multiply defined (by spi_gsensor.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol Hour_Hand_One_Step_flg multiply defined (by spi_master.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol Hour_Hand_One_Step_flg multiply defined (by pedometer.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol bt_rx_len multiply defined (by spi_gsensor.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol bt_rx_len multiply defined (by spi_master.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol bt_rx_len multiply defined (by pedometer.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol bt_tx_len multiply defined (by spi_gsensor.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol bt_tx_len multiply defined (by spi_master.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol bt_tx_len multiply defined (by pedometer.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol Hour_Hand_Clockwise_Step_Cnt multiply defined (by spi_gsensor.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol Hour_Hand_Clockwise_Step_Cnt multiply defined (by spi_master.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol Hour_Hand_Clockwise_Step_Cnt multiply defined (by pedometer.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol Minute_Hand_Clockwise_Step_Cnt multiply defined (by spi_gsensor.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol Minute_Hand_Clockwise_Step_Cnt multiply defined (by spi_master.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol Minute_Hand_Clockwise_Step_Cnt multiply defined (by pedometer.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol Second_Hand_Clockwise_Step_Cnt multiply defined (by spi_gsensor.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol Second_Hand_Clockwise_Step_Cnt multiply defined (by spi_master.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol Second_Hand_Clockwise_Step_Cnt multiply defined (by pedometer.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol Hand_activity_mode multiply defined (by spi_gsensor.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol Hand_activity_mode multiply defined (by spi_master.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol Hand_activity_mode multiply defined (by pedometer.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol Show_Date_Batt_mode_step multiply defined (by spi_gsensor.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol Show_Date_Batt_mode_step multiply defined (by spi_master.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol Show_Date_Batt_mode_step multiply defined (by pedometer.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol BLE_On_Mode_step multiply defined (by spi_gsensor.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol BLE_On_Mode_step multiply defined (by spi_master.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol BLE_On_Mode_step multiply defined (by pedometer.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol BLE_Off_Mode_step multiply defined (by spi_gsensor.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol BLE_Off_Mode_step multiply defined (by spi_master.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol BLE_Off_Mode_step multiply defined (by pedometer.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol Battery_Low_Voltage_Mode_step multiply defined (by spi_gsensor.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol Battery_Low_Voltage_Mode_step multiply defined (by spi_master.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol Battery_Low_Voltage_Mode_step multiply defined (by pedometer.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol Pointer_Calibration_mode_step multiply defined (by spi_gsensor.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol Pointer_Calibration_mode_step multiply defined (by spi_master.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol Pointer_Calibration_mode_step multiply defined (by pedometer.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol Power_Off_Mode_step multiply defined (by spi_gsensor.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol Power_Off_Mode_step multiply defined (by spi_master.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol Power_Off_Mode_step multiply defined (by pedometer.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol Power_On_Mode_step multiply defined (by spi_gsensor.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol Power_On_Mode_step multiply defined (by spi_master.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol Power_On_Mode_step multiply defined (by pedometer.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol Chasing_Time_step multiply defined (by spi_gsensor.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol Chasing_Time_step multiply defined (by spi_master.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol Chasing_Time_step multiply defined (by pedometer.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol Hand_To_Zero_Mode_step multiply defined (by spi_gsensor.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol Hand_To_Zero_Mode_step multiply defined (by spi_master.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol Hand_To_Zero_Mode_step multiply defined (by pedometer.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol Hand_Calibration_Mode_for_BLE_step multiply defined (by spi_gsensor.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol Hand_Calibration_Mode_for_BLE_step multiply defined (by spi_master.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol Hand_Calibration_Mode_for_BLE_step multiply defined (by pedometer.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol key_press_times_cnt multiply defined (by spi_gsensor.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol key_press_times_cnt multiply defined (by spi_master.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol key_press_times_cnt multiply defined (by pedometer.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol RTC_Second_Hand_Position multiply defined (by spi_gsensor.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol RTC_Second_Hand_Position multiply defined (by spi_master.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol RTC_Second_Hand_Position multiply defined (by pedometer.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol RTC_Minute_Hand_Position multiply defined (by spi_gsensor.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol RTC_Minute_Hand_Position multiply defined (by spi_master.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol RTC_Minute_Hand_Position multiply defined (by pedometer.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol RTC_Hour_Hand_Position multiply defined (by spi_gsensor.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol RTC_Hour_Hand_Position multiply defined (by spi_master.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol RTC_Hour_Hand_Position multiply defined (by pedometer.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol Second_Hand_Position multiply defined (by spi_gsensor.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol Second_Hand_Position multiply defined (by spi_master.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol Second_Hand_Position multiply defined (by pedometer.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol Minute_Hand_Position multiply defined (by spi_gsensor.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol Minute_Hand_Position multiply defined (by spi_master.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol Minute_Hand_Position multiply defined (by pedometer.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol Hour_Hand_Position multiply defined (by spi_gsensor.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol Hour_Hand_Position multiply defined (by spi_master.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol Hour_Hand_Position multiply defined (by pedometer.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol Small_Hand_Top_Position multiply defined (by spi_gsensor.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol Small_Hand_Top_Position multiply defined (by spi_master.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol Small_Hand_Top_Position multiply defined (by pedometer.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol Small_Hand_Buttom_Position multiply defined (by spi_gsensor.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol Small_Hand_Buttom_Position multiply defined (by spi_master.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol Small_Hand_Buttom_Position multiply defined (by pedometer.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol Small_Hand_Right_Position multiply defined (by spi_gsensor.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol Small_Hand_Right_Position multiply defined (by spi_master.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol Small_Hand_Right_Position multiply defined (by pedometer.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol Small_Hand_Left_Position multiply defined (by spi_gsensor.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol Small_Hand_Left_Position multiply defined (by spi_master.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol Small_Hand_Left_Position multiply defined (by pedometer.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol Pedometer_Position multiply defined (by spi_gsensor.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol Pedometer_Position multiply defined (by spi_master.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol Pedometer_Position multiply defined (by pedometer.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol key_press_cnt multiply defined (by spi_gsensor.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol key_press_cnt multiply defined (by spi_master.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol key_press_cnt multiply defined (by pedometer.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol RTC_CNT multiply defined (by spi_gsensor.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol RTC_CNT multiply defined (by spi_master.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol RTC_CNT multiply defined (by pedometer.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol RTC_TIME_BASE multiply defined (by spi_gsensor.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol RTC_TIME_BASE multiply defined (by spi_master.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol RTC_TIME_BASE multiply defined (by pedometer.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol adc_sample multiply defined (by spi_gsensor.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol adc_sample multiply defined (by spi_master.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol adc_sample multiply defined (by pedometer.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol Start_Show_value multiply defined (by spi_gsensor.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol Start_Show_value multiply defined (by spi_master.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol Start_Show_value multiply defined (by pedometer.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol SN multiply defined (by spi_gsensor.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol SN multiply defined (by spi_master.o and main.o).
+.\_build\nrf51422_xxac_s110.axf: Error: L6200E: Symbol SN multiply defined (by pedometer.o and main.o).
+Not enough information to list image symbols.
+Not enough information to list the image map.
+Finished: 2 information, 0 warning and 195 error messages.
+".\_build\nrf51422_xxac_s110.axf" - 195 Error(s), 3 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: ARM
+                http://www.keil.com/pack/ARM.CMSIS.4.5.0.pack
+                ARM::CMSIS:CORE:4.3.0
+                CMSIS (Cortex Microcontroller Software Interface Standard)
+   * Component: CORE Version: 4.3.0
+
+Package Vendor: NordicSemiconductor
+                http://developer.nordicsemi.com/nRF51_SDK/pieces/nRF_DeviceFamilyPack/NordicSemiconductor.nRF_DeviceFamilyPack.8.2.0.pack
+                NordicSemiconductor::Device:Startup:8.2.0
+                Nordic Semiconductor nRF ARM devices Device Family Pack.
+   * Component: Startup Version: 8.2.0
+
+<h2>Collection of Component include folders:</h2>
+  E:\nrf5_SDK\nRF51_SDK_10.0.0\examples\ble_peripheral\ble_app_uart_with_protocol_20161115\pca10028\s110\arm5_no_packs\RTE
+  d:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include
+  d:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.2.0\Device\Include
+  d:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.9.0\Device\Include
+
+<h2>Collection of Component Files used:</h2>
+
+   * Component: ARM::CMSIS:CORE:4.3.0
+
+   * Component: NordicSemiconductor::Device:Startup:8.2.0
+      Source file:   Device\Source\arm\arm_startup_nrf51.s
+      Source file:   Device\Source\system_nrf51.c
+      Include file:  Device\Include\system_nrf51.h
+Target not created.
+</pre>
+</body>
+</html>

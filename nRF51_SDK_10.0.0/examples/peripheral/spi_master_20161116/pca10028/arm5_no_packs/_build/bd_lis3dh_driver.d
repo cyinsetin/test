@@ -1,0 +1,14 @@
+.\_build\bd_lis3dh_driver.o: ..\..\exit_driver\bd_lis3dh_driver.c
+.\_build\bd_lis3dh_driver.o: ..\..\exit_driver\bd_lis3dh_driver.h
+.\_build\bd_lis3dh_driver.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\_build\bd_lis3dh_driver.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\_build\bd_lis3dh_driver.o: ..\..\..\..\..\components\libraries\util\nrf_assert.h
+.\_build\bd_lis3dh_driver.o: ..\..\..\..\..\components\device\compiler_abstraction.h
+.\_build\bd_lis3dh_driver.o: ..\..\..\..\..\components\device\nrf51.h
+.\_build\bd_lis3dh_driver.o: d:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cm0.h
+.\_build\bd_lis3dh_driver.o: d:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmInstr.h
+.\_build\bd_lis3dh_driver.o: d:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\cmsis_armcc.h
+.\_build\bd_lis3dh_driver.o: d:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmFunc.h
+.\_build\bd_lis3dh_driver.o: ..\..\..\..\..\components\toolchain\system_nrf51.h
+.\_build\bd_lis3dh_driver.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
+.\_build\bd_lis3dh_driver.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
